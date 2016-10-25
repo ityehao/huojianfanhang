@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .rocket {
+            position: fixed;
+            right: 50px;
+            bottom: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<span class="rocket" id="backTop">
+    <img src="images/Top.jpg" alt=""/>
+</span>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+
+<p>开始页面内容</p>
+</body>
+</html>
+<script src="my.js" type="text/javascript"></script>
+<script>
+    //当窗体滚动的时候 进行检测 scroll().top 如果是0 就隐藏 否则 显示
+    //获取backTop
+    var backTop = $("backTop");
+    var leader = 0;
+    var timer = null;
+
+    window.onscroll = function () {
+        if (scroll().top > 0) {
+            show("backTop");
+        } else {
+            hide("backTop");
+        }
+        leader = scroll().top;//这个是当前的位置
+    }
+    //小火箭被点击的时候 窗体滚到(0,0)
+    backTop.onclick = function () {
+        //window.scrollTo是让窗体滚动到某个位置的方法
+        //window.scrollTo(0, 0);
+        clearInterval(timer);
+        timer = setInterval(function () {
+            //step = (target-leader)/10
+            //leader =leader + step
+            var target = 0;
+            var step = (target - leader) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            leader = leader + step;
+            console.log(leader);
+            window.scrollTo(0, leader);
+            if (leader == target) {
+                clearInterval(timer);
+            }
+        }, 30)
+
+    }
+
+
+</script>
